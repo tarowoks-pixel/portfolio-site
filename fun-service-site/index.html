@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="架空サービス Bug Hunt Dojo の面白いサービスLP制作サンプルです。" />
+    <title>Bug Hunt Dojo | Fun LP Sample</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="#top">Bug Hunt Dojo</a>
+      <nav>
+        <a href="#mission">Mission</a>
+        <a href="#levels">Levels</a>
+        <a href="#ranking">Ranking</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="badge">Debug Training Game</p>
+          <h1>バグを探して、レビュー力をレベルアップ。</h1>
+          <p>
+            Bug Hunt Dojoは、コードレビューやテスト観点をゲーム感覚で学ぶ架空の学習サービスです。
+            ミッションをクリアしながら、見落としがちな不具合パターンを覚えます。
+          </p>
+          <a class="button" href="#mission">ミッション開始</a>
+        </div>
+        <div class="game-board" aria-label="ゲーム画面風ビジュアル">
+          <div class="tile ok">OK</div>
+          <div class="tile bug">BUG</div>
+          <div class="tile code">if</div>
+          <div class="tile warn">!</div>
+          <div class="tile code">log</div>
+          <div class="tile bug">404</div>
+          <div class="tile ok">PASS</div>
+          <div class="tile code">API</div>
+          <div class="score">SCORE 12800</div>
+        </div>
+      </section>
+
+      <section class="mission" id="mission">
+        <p class="badge">Mission</p>
+        <h2>遊びながら、確認すべきポイントを覚える。</h2>
+        <div class="mission-grid">
+          <article><strong>01</strong><h3>コードの違和感を探す</h3><p>条件分岐、NULL、配列範囲、例外処理などをチェック。</p></article>
+          <article><strong>02</strong><h3>仕様の抜けを見つける</h3><p>境界値、異常系、復帰条件の不足を見抜きます。</p></article>
+          <article><strong>03</strong><h3>レビューコメントを選ぶ</h3><p>ただ指摘するだけでなく、伝わるコメントを選択。</p></article>
+        </div>
+      </section>
+
+      <section class="levels" id="levels">
+        <div>
+          <p class="badge">Levels</p>
+          <h2>難易度別ステージ</h2>
+        </div>
+        <ol>
+          <li><span>Lv.1</span>入力チェックの抜け</li>
+          <li><span>Lv.2</span>状態遷移の矛盾</li>
+          <li><span>Lv.3</span>通信・リトライの罠</li>
+          <li><span>Boss</span>複合バグレビュー</li>
+        </ol>
+      </section>
+
+      <section class="ranking" id="ranking">
+        <p class="badge">Ranking</p>
+        <h2>今日のレビューマスター</h2>
+        <div class="rank-list">
+          <div><b>1</b><span>Boundary Hunter</span><strong>9800</strong></div>
+          <div><b>2</b><span>State Keeper</span><strong>9200</strong></div>
+          <div><b>3</b><span>Log Reader</span><strong>8600</strong></div>
+        </div>
+        <a class="button" href="../index.html">制作実績へ戻る</a>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="個人カフェ向けの動きのあるLP制作サンプルです。"
+    />
+    <title>Kissa Orbit | Motion Cafe LP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Kissa Orbit">
+        <span class="brand-mark">O</span>
+        <span>Kissa Orbit</span>
+      </a>
+      <nav class="site-nav" aria-label="主要メニュー">
+        <a href="#menu">Menu</a>
+        <a href="#story">Story</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Coffee / Toast / Quiet Work</p>
+          <h1>朝の一杯から、少しだけ気分が上向く喫茶店。</h1>
+          <p>
+            自家焙煎コーヒーと厚切りトースト、短い読書時間のための小さなカフェ。
+            来店前に雰囲気とメニューが伝わる個人店向けLPサンプルです。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#menu">メニューを見る</a>
+            <a class="secondary-link" href="#visit">アクセス</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="カフェの写真">
+          <img
+            class="main-photo"
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+            alt="木製テーブルに置かれたコーヒー"
+          />
+          <div class="mini-panel panel-one">
+            <span class="steam"></span>
+            <span class="steam delay"></span>
+            <strong>8:00</strong>
+            <small>morning set</small>
+          </div>
+          <div class="mini-panel panel-two">
+            <strong>12</strong>
+            <small>single origin beans</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="本日のおすすめ">
+        <div class="ticker-track">
+          <span>Today: lemon toast</span>
+          <span>Hand drip coffee</span>
+          <span>Window seat available</span>
+          <span>Takeout beans</span>
+          <span>Today: lemon toast</span>
+          <span>Hand drip coffee</span>
+        </div>
+      </section>
+
+      <section class="section menu-section" id="menu">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Menu Board</p>
+          <h2>気分で選ぶ、3つの時間。</h2>
+        </div>
+        <div class="filter-bar reveal" role="tablist" aria-label="メニューカテゴリ">
+          <button type="button" class="filter-button is-active" data-filter="morning">Morning</button>
+          <button type="button" class="filter-button" data-filter="lunch">Lunch</button>
+          <button type="button" class="filter-button" data-filter="sweets">Sweets</button>
+        </div>
+        <div class="menu-grid reveal">
+          <article class="menu-card" data-menu="morning">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="トーストと卵の朝食" />
+            <div>
+              <p>Morning</p>
+              <h3>厚切りバタートースト</h3>
+              <span>680 yen</span>
+            </div>
+          </article>
+          <article class="menu-card" data-menu="morning">
+            <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=900&q=80" alt="朝食プレート" />
+            <div>
+              <p>Morning</p>
+              <h3>半熟たまごの朝プレート</h3>
+              <span>860 yen</span>
+            </div>
+          </article>
+          <article class="menu-card" data-menu="lunch" hidden>
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80" alt="野菜のランチプレート" />
+            <div>
+              <p>Lunch</p>
+              <h3>季節野菜のデリプレート</h3>
+              <span>1,180 yen</span>
+            </div>
+          </article>
+          <article class="menu-card" data-menu="lunch" hidden>
+            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80" alt="カレーライス" />
+            <div>
+              <p>Lunch</p>
+              <h3>スパイスチキンカレー</h3>
+              <span>1,050 yen</span>
+            </div>
+          </article>
+          <article class="menu-card" data-menu="sweets" hidden>
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=80" alt="ベリーのデザート" />
+            <div>
+              <p>Sweets</p>
+              <h3>ベリーとヨーグルトのパフェ</h3>
+              <span>780 yen</span>
+            </div>
+          </article>
+          <article class="menu-card" data-menu="sweets" hidden>
+            <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=900&q=80" alt="焼き菓子" />
+            <div>
+              <p>Sweets</p>
+              <h3>焦がしキャラメルプリン</h3>
+              <span>620 yen</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section stamp-section" id="story">
+        <div class="stamp-copy reveal">
+          <p class="eyebrow">Small Interaction</p>
+          <h2>常連さん向けの小さな仕掛け。</h2>
+          <p>
+            スタンプカード風の動きや、季節メニューの切り替えなど、
+            店舗サイトに少しだけ楽しい体験を足せます。
+          </p>
+          <button class="stamp-button" type="button">今日の一杯を押す</button>
+        </div>
+        <div class="stamp-card reveal" aria-live="polite">
+          <div class="stamp-card-head">
+            <span>Kissa Orbit</span>
+            <strong><span id="stampCount">0</span>/6</strong>
+          </div>
+          <div class="stamps">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p id="stampMessage">1杯目のコーヒーから始まります。</p>
+        </div>
+      </section>
+
+      <section class="photo-strip" aria-label="店内の雰囲気">
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80" alt="カフェの店内" />
+        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80" alt="コーヒー豆" />
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="落ち着いたカフェ席" />
+      </section>
+
+      <section class="section visit-section" id="visit">
+        <div class="visit-panel reveal">
+          <p class="eyebrow">Visit</p>
+          <h2>駅から徒歩4分。朝8時から。</h2>
+          <dl>
+            <div>
+              <dt>Open</dt>
+              <dd>8:00 - 18:00 / Wed closed</dd>
+            </div>
+            <div>
+              <dt>Address</dt>
+              <dd>東京都架空区青葉町 1-2-3</dd>
+            </div>
+            <div>
+              <dt>Contact</dt>
+              <dd>LINE / Instagram / Web form</dd>
+            </div>
+          </dl>
+          <a class="primary-link" href="#top">ページ上部へ</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>Sample site for small shops / taro-apps Works</small>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

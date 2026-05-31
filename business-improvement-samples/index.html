@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Excel、VBA、管理表を使って中小企業・個人事業主の面倒な事務作業を減らす業務改善サンプル集です。"
+    />
+    <title>業務改善サンプル | taro-apps Works</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="taro-apps Works">
+        <span class="brand-mark">T</span>
+        <span>taro-apps Works</span>
+      </a>
+      <nav class="site-nav" aria-label="主要メニュー">
+        <a href="#samples">サンプル</a>
+        <a href="#usecase">依頼例</a>
+        <a href="../index.html#works">制作実績</a>
+        <a href="../index.html#contact">相談する</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="overview-section">
+        <div class="overview-copy">
+          <p class="eyebrow">Business Improvement Samples</p>
+          <h1>Excel・VBAで業務改善</h1>
+          <p>
+            中小企業や個人事業主の現場で起きがちな、問い合わせ管理、勤務表、見積書・請求書作成を題材にした
+            業務改善サンプルです。大きなシステムを入れる前に、まずExcelで管理しやすくする想定で作っています。
+          </p>
+        </div>
+        <div class="overview-panel" aria-label="対応できる改善例">
+          <dl>
+            <div>
+              <dt>対象</dt>
+              <dd>管理表、集計表、転記作業、定型書類</dd>
+            </div>
+            <div>
+              <dt>方法</dt>
+              <dd>Excel関数、条件付き書式、入力規則、VBA</dd>
+            </div>
+            <div>
+              <dt>目的</dt>
+              <dd>対応漏れ、計算ミス、手作業の転記を減らす</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="sample-list" id="samples">
+        <div class="section-heading">
+          <p class="eyebrow">Samples</p>
+          <h2>作成サンプル</h2>
+          <p>そのまま営業時に見せられる、業務改善サンプルを3種類用意しています。</p>
+        </div>
+
+        <article class="sample-detail">
+          <div class="sheet-preview sheet-preview--contact" aria-label="問い合わせ管理表のプレビュー">
+            <div class="sheet-title">問い合わせ管理表</div>
+            <div class="sheet-row sheet-head">
+              <span>会社名</span><span>優先度</span><span>対応状況</span><span>次回対応日</span>
+            </div>
+            <div class="sheet-row">
+              <span>山田商店</span><span class="badge high">高</span><span>対応中</span><span>5/31</span>
+            </div>
+            <div class="sheet-row">
+              <span>佐藤整体院</span><span class="badge middle">中</span><span>未対応</span><span>6/1</span>
+            </div>
+            <div class="sheet-row alert">
+              <span>ABC製作所</span><span class="badge high">高</span><span>対応中</span><span>期限注意</span>
+            </div>
+          </div>
+          <div class="sample-copy">
+            <p class="work-type">Contact Management</p>
+            <h3>問い合わせ管理表</h3>
+            <p>
+              問い合わせ日、相手先、内容、優先度、対応状況、次回対応日を1枚で管理するサンプルです。
+              対応漏れや期限超過が見えるようにしています。
+            </p>
+            <ul class="feature-list">
+              <li>対応状況、優先度、期限アラートをリスト選択で管理</li>
+              <li>期限超過・要対応・完了を色で判別</li>
+              <li>集計シートで未対応件数や優先度を確認</li>
+            </ul>
+            <a class="primary-link" href="./files/contact_management_sample.xlsx" download>Excelをダウンロード</a>
+          </div>
+        </article>
+
+        <article class="sample-detail sample-detail--reverse">
+          <div class="sheet-preview sheet-preview--time" aria-label="勤務表のプレビュー">
+            <div class="sheet-title">標準勤務表</div>
+            <div class="sheet-row sheet-head">
+              <span>日付</span><span>休日判定</span><span>勤務時間</span><span>不足</span>
+            </div>
+            <div class="sheet-row">
+              <span>6/1</span><span>平日</span><span>8:30</span><span>0:00</span>
+            </div>
+            <div class="sheet-row alert">
+              <span>6/3</span><span>平日</span><span>6:30</span><span>1:30</span>
+            </div>
+            <div class="sheet-row muted">
+              <span>6/15</span><span>会社休日</span><span>0:00</span><span>0:00</span>
+            </div>
+          </div>
+          <div class="sample-copy">
+            <p class="work-type">Timesheet</p>
+            <h3>標準勤務表</h3>
+            <p>
+              出勤・退勤・休憩から勤務時間、残業、不足時間、有休日数を計算する勤務表サンプルです。
+              祝日と会社独自休日も別シートから反映します。
+            </p>
+            <ul class="feature-list">
+              <li>祝日・会社休日を休日設定シートで管理</li>
+              <li>半休は有休日数0.5日として集計</li>
+              <li>休日行、不足時間ありの行を色で判別</li>
+            </ul>
+            <a class="primary-link" href="./files/standard_timesheet_sample.xlsx" download>Excelをダウンロード</a>
+          </div>
+        </article>
+
+        <article class="sample-detail">
+          <div class="sheet-preview sheet-preview--invoice" aria-label="見積書請求書VBAツールのプレビュー">
+            <div class="sheet-title">見積書・請求書作成ツール</div>
+            <div class="tool-flow">
+              <span>入力</span>
+              <span>マスタ参照</span>
+              <span>帳票作成</span>
+              <span>履歴記録</span>
+            </div>
+            <div class="invoice-box">
+              <strong>見積書</strong>
+              <span>小計 17,500円</span>
+              <span>合計 19,250円</span>
+            </div>
+          </div>
+          <div class="sample-copy">
+            <p class="work-type">Excel VBA Tool</p>
+            <h3>見積書・請求書作成VBAツール</h3>
+            <p>
+              入力シートの内容から見積書・請求書を作成し、発行履歴に記録するVBAサンプルです。
+              顧客マスタ、商品マスタ、発行履歴の管理も含めています。
+            </p>
+            <ul class="feature-list">
+              <li>入力内容から見積書・請求書を作成</li>
+              <li>顧客マスタ、商品マスタを用意</li>
+              <li>発行日時、顧客名、金額を履歴に記録</li>
+            </ul>
+            <a class="primary-link" href="./files/quote_invoice_vba_tool.xlsm" download>VBAツールをダウンロード</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="usecase-section" id="usecase">
+        <div class="section-heading">
+          <p class="eyebrow">Use Case</p>
+          <h2>相談しやすい依頼例</h2>
+          <p>大きなシステム開発ではなく、まずは小さな改善から対応できます。</p>
+        </div>
+        <div class="usecase-grid">
+          <article>
+            <h3>毎月の集計を減らしたい</h3>
+            <p>売上、問い合わせ、作業時間などを入力するだけで集計できる表に整えます。</p>
+          </article>
+          <article>
+            <h3>管理表を見やすくしたい</h3>
+            <p>入力規則、色分け、期限アラートを入れて、対応漏れを見つけやすくします。</p>
+          </article>
+          <article>
+            <h3>定型書類を作りたい</h3>
+            <p>見積書、請求書、チェックリストなど、毎回作る書類をテンプレート化します。</p>
+          </article>
+          <article>
+            <h3>VBAでボタン化したい</h3>
+            <p>転記、集計、帳票作成などの繰り返し作業を、ボタン操作で実行できる形にします。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Excel作業の小さな改善から相談できます</h2>
+          <p>
+            既存のExcelを見やすくしたい、毎月の転記を減らしたい、定型書類を作りたいなど、
+            小さな業務改善から対応します。
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="primary-link" href="mailto:tarowoks@gmail.com">メールで相談</a>
+          <a class="secondary-link" href="https://coconala.com/services/4231156" target="_blank" rel="noreferrer">ココナラで相談</a>
+          <a class="secondary-link" href="https://crowdworks.jp/public/employees/6867071?ref=login_header" target="_blank" rel="noreferrer">CrowdWorksで相談</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© 2026 taro-apps Works</small>
+    </footer>
+  </body>
+</html>

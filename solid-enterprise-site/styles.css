@@ -1,0 +1,144 @@
+:root {
+  font-family: "Segoe UI", "Yu Gothic", Meiryo, sans-serif;
+  color: #0f172a;
+  background: #f4f7fb;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+
+.header {
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #d8e3ec;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px max(20px, calc((100vw - 1160px) / 2));
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.brand { color: #12355b; font-weight: 900; }
+nav { display: flex; flex-wrap: wrap; gap: 18px; color: #475569; font-size: 0.9rem; font-weight: 800; }
+
+.hero, .solutions, .security, .cases, .contact {
+  margin: 0 auto;
+  width: min(1160px, calc(100% - 40px));
+}
+.hero {
+  align-items: center;
+  display: grid;
+  gap: 42px;
+  grid-template-columns: 1fr 0.82fr;
+  min-height: calc(100vh - 58px);
+  padding: 56px 0;
+}
+.eyebrow { color: #0f4c81; font-size: 0.78rem; font-weight: 900; margin: 0 0 12px; text-transform: uppercase; }
+h1,h2,h3,p { margin-top: 0; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.08; margin-bottom: 20px; }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2; }
+p, li, dd { color: #475569; line-height: 1.8; }
+.lead { font-size: 1.08rem; max-width: 680px; }
+.actions { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.primary, .secondary {
+  border-radius: 8px;
+  display: inline-flex;
+  font-weight: 900;
+  min-height: 48px;
+  padding: 12px 20px;
+}
+.primary { background: #12355b; color: #fff; }
+.secondary { background: #e2e8f0; color: #0f172a; }
+
+.system-panel {
+  background: #0b1220;
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(15,23,42,.22);
+  color: #fff;
+  padding: 24px;
+}
+.panel-head { display: flex; justify-content: space-between; margin-bottom: 24px; }
+.panel-head span { color: #93c5fd; font-weight: 900; }
+.panel-head strong { font-size: 2rem; }
+.bar-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 82px 1fr;
+  margin-bottom: 14px;
+}
+.bar-row span { color: #cbd5e1; font-weight: 800; }
+.bar-row b {
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  border-radius: 999px;
+  display: block;
+  height: 12px;
+}
+.event-log {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 8px;
+  margin-top: 22px;
+  padding: 16px;
+}
+.event-log p { color: #dbeafe; font-family: Consolas, monospace; font-size: .9rem; margin-bottom: 8px; }
+.event-log p:last-child { margin-bottom: 0; }
+
+.solutions, .security, .cases { padding: 70px 0; }
+.solution-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 24px;
+}
+.solution-grid article, .security, .case-table div {
+  background: #fff;
+  border: 1px solid #d8e3ec;
+  border-radius: 8px;
+  padding: 24px;
+}
+.security {
+  align-items: start;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.security dl { display: grid; gap: 12px; margin: 0; }
+.security div { border-left: 4px solid #0f4c81; padding-left: 14px; }
+dt { color: #12355b; font-weight: 900; }
+dd { margin: 0; }
+.case-table { display: grid; gap: 12px; margin-top: 24px; }
+.case-table div {
+  align-items: center;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 100px 1fr 180px;
+}
+.case-table span { color: #0f4c81; font-weight: 900; }
+.case-table strong { font-size: 1.1rem; }
+.case-table em { color: #64748b; font-style: normal; font-weight: 800; }
+.contact {
+  align-items: center;
+  background: #12355b;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  padding: 32px;
+}
+.contact h2 { color: #fff; }
+.contact .eyebrow { color: #bfdbfe; }
+
+@media (max-width: 860px) {
+  .header { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .hero, .security { grid-template-columns: 1fr; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .case-table div { grid-template-columns: 1fr; }
+  .contact { align-items: flex-start; flex-direction: column; gap: 18px; }
+}
+@media (max-width: 560px) {
+  .hero, .solutions, .security, .cases, .contact { width: min(100% - 28px, 1160px); }
+  .actions { display: grid; }
+  .system-panel, .security, .contact { padding: 20px; }
+}

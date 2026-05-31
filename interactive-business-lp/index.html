@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="JavaScriptのUI機能を備えた架空の業務改善サービスLPサンプルです。レスポンシブ、フォーム検証、タブ、FAQ、スライダーなどを実装しています。"
+    />
+    <title>FlowPilot | JavaScript機能付きLPサンプル</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="FlowPilot トップへ">
+        <span class="brand-mark">F</span>
+        <span>FlowPilot</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
+        <a href="#features">機能</a>
+        <a href="#cases">導入例</a>
+        <a href="#plans">料金</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#contact">相談する</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero-section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Interactive LP Sample</p>
+          <h1>問い合わせ対応と<br />社内タスクを<br />見える形に整える<br />業務改善ツール</h1>
+          <p class="hero-lead">
+            FlowPilotは、問い合わせ、タスク、レポート作成をひとつの画面で管理する架空のSaaSです。
+            このページは、LP制作案件で求められやすいJavaScript機能を一通り実装した制作サンプルです。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#contact">無料相談を予約</a>
+            <button class="secondary-button" type="button" data-open-modal="demo-modal">デモを見る</button>
+          </div>
+          <ul class="hero-checks" aria-label="実装内容">
+            <li>レスポンシブ対応</li>
+            <li>フォーム入力チェック</li>
+            <li>タブ・FAQ・スライダー</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-preview reveal" aria-label="管理画面イメージ">
+          <div class="preview-toolbar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <strong>Weekly Operations</strong>
+          </div>
+          <div class="preview-grid">
+            <section class="preview-panel main-panel">
+              <div class="panel-heading">
+                <span>Today</span>
+                <strong>対応状況</strong>
+              </div>
+              <div class="chart-bars" aria-hidden="true">
+                <span style="--h: 48%"></span>
+                <span style="--h: 74%"></span>
+                <span style="--h: 58%"></span>
+                <span style="--h: 86%"></span>
+                <span style="--h: 64%"></span>
+              </div>
+            </section>
+            <section class="preview-panel">
+              <span class="status-dot"></span>
+              <strong>24件</strong>
+              <p>自動分類済み</p>
+            </section>
+            <section class="preview-panel">
+              <span class="status-dot amber"></span>
+              <strong>7件</strong>
+              <p>確認待ち</p>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block metrics-section" aria-label="サンプル数値">
+        <div class="metric-card reveal">
+          <span data-count="38">0</span>
+          <p>対応時間の削減率</p>
+        </div>
+        <div class="metric-card reveal">
+          <span data-count="120">0</span>
+          <p>月間タスク整理数</p>
+        </div>
+        <div class="metric-card reveal">
+          <span data-count="96">0</span>
+          <p>スマホ表示確認率</p>
+        </div>
+      </section>
+
+      <section class="section-block" id="features">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Features</p>
+          <h2>LPでよく使う動きを、実案件に近い形で実装</h2>
+          <p>
+            見た目だけではなく、ユーザー操作に応じた表示切り替え、入力チェック、状態管理をJavaScriptで実装しています。
+          </p>
+        </div>
+
+        <div class="tabs reveal" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="機能カテゴリ">
+            <button type="button" role="tab" aria-selected="true" aria-controls="tab-panel-1" id="tab-1">
+              問い合わせ管理
+            </button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2">
+              タスク整理
+            </button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3">
+              レポート
+            </button>
+          </div>
+          <div class="tab-panels">
+            <article class="tab-panel active" role="tabpanel" id="tab-panel-1" aria-labelledby="tab-1">
+              <div>
+                <p class="work-type">Contact</p>
+                <h3>問い合わせ内容を自動で分類する想定の画面</h3>
+                <p>フォーム、メール、チャットから届いた内容をステータス別に整理するUIです。</p>
+              </div>
+              <ul>
+                <li>未対応・確認中・完了の状態表示</li>
+                <li>担当者別の絞り込みを想定した情報設計</li>
+                <li>スマホでも読みやすいカード配置</li>
+              </ul>
+            </article>
+            <article class="tab-panel" role="tabpanel" id="tab-panel-2" aria-labelledby="tab-2" hidden>
+              <div>
+                <p class="work-type">Task</p>
+                <h3>優先度と期限を見ながら作業を整理</h3>
+                <p>小規模チームが毎日見ることを想定し、一覧性と操作の分かりやすさを重視しています。</p>
+              </div>
+              <ul>
+                <li>期限切れを見逃しにくい情報設計</li>
+                <li>チームで共有しやすいコメント欄を想定</li>
+                <li>通知や検索機能を追加しやすい構造</li>
+              </ul>
+            </article>
+            <article class="tab-panel" role="tabpanel" id="tab-panel-3" aria-labelledby="tab-3" hidden>
+              <div>
+                <p class="work-type">Report</p>
+                <h3>月次報告に使える集計画面</h3>
+                <p>対応件数、未完了タスク、改善ポイントをまとめて確認できる想定です。</p>
+              </div>
+              <ul>
+                <li>数字を強調したダッシュボード表示</li>
+                <li>CSV出力やPDF化にも拡張しやすい構成</li>
+                <li>経営者や管理者が見ても分かる文言設計</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block cases-section" id="cases">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Use Cases</p>
+          <h2>業種別の導入イメージ</h2>
+          <p>スライダー、状態表示、ボタン操作のサンプルとして、3つの導入例を切り替え表示します。</p>
+        </div>
+
+        <div class="case-slider reveal" data-slider>
+          <div class="case-track">
+            <article class="case-card active">
+              <p class="work-type">Clinic</p>
+              <h3>クリニックの問い合わせ整理</h3>
+              <p>予約前の質問や資料請求を分類し、返信漏れを減らす運用を想定しています。</p>
+            </article>
+            <article class="case-card">
+              <p class="work-type">School</p>
+              <h3>スクールの体験申込管理</h3>
+              <p>体験予約、受講相談、資料送付をひとつの導線にまとめるLPです。</p>
+            </article>
+            <article class="case-card">
+              <p class="work-type">Maker</p>
+              <h3>製造業の改善依頼受付</h3>
+              <p>現場からの改善要望を集め、対応状況を見える化する想定です。</p>
+            </article>
+          </div>
+          <div class="slider-controls" aria-label="導入例の切り替え">
+            <button type="button" data-slider-prev>前へ</button>
+            <div class="slider-dots" aria-hidden="true"></div>
+            <button type="button" data-slider-next>次へ</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block plans-section" id="plans">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Plans</p>
+          <h2>料金表示の切り替えサンプル</h2>
+          <p>月額・年額の表示切り替えもJavaScriptで実装しています。</p>
+        </div>
+        <div class="billing-toggle reveal" aria-label="料金表示切り替え">
+          <span>月額</span>
+          <button type="button" class="switch" aria-pressed="false" data-price-toggle>
+            <span></span>
+          </button>
+          <span>年額</span>
+        </div>
+        <div class="plan-grid">
+          <article class="plan-card reveal">
+            <h3>Starter</h3>
+            <p>小規模なLPや問い合わせ導線の検証向け。</p>
+            <strong><span data-monthly="9,800" data-yearly="98,000">9,800</span>円</strong>
+            <a href="#contact">相談する</a>
+          </article>
+          <article class="plan-card featured reveal">
+            <h3>Business</h3>
+            <p>チームで使う業務改善ツールの導入検討向け。</p>
+            <strong><span data-monthly="29,800" data-yearly="298,000">29,800</span>円</strong>
+            <a href="#contact">相談する</a>
+          </article>
+          <article class="plan-card reveal">
+            <h3>Custom</h3>
+            <p>既存業務に合わせた追加開発や連携向け。</p>
+            <strong>個別見積</strong>
+            <a href="#contact">相談する</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block faq-section" id="faq">
+        <div class="section-heading reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>FAQアコーディオン</h2>
+          <p>クリックで開閉し、複数の質問を整理して見せるUIです。</p>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>スマホ表示にも対応していますか？</summary>
+            <p>はい。PC、タブレット、スマホで読みやすいようにレイアウトを切り替えています。</p>
+          </details>
+          <details>
+            <summary>フォームの入力チェックはできますか？</summary>
+            <p>必須項目、メール形式、文字数などの簡単なチェックをJavaScriptで実装しています。</p>
+          </details>
+          <details>
+            <summary>WordPress化もできますか？</summary>
+            <p>現時点では学習中です。まずはHTML/CSS/JavaScriptの静的サイト制作を中心に対応します。</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>問い合わせフォームの入力チェックサンプル</h2>
+          <p>実送信は行わず、入力内容の検証と完了メッセージ表示までを実装しています。</p>
+        </div>
+        <form class="contact-form reveal" novalidate>
+          <label>
+            お名前
+            <input type="text" name="name" autocomplete="name" data-required />
+            <small class="error-message"></small>
+          </label>
+          <label>
+            メールアドレス
+            <input type="email" name="email" autocomplete="email" data-required />
+            <small class="error-message"></small>
+          </label>
+          <label>
+            ご相談内容
+            <textarea name="message" rows="5" maxlength="300" data-required></textarea>
+            <span class="char-count">0 / 300</span>
+            <small class="error-message"></small>
+          </label>
+          <button type="submit">入力内容を確認</button>
+        </form>
+      </section>
+    </main>
+
+    <div class="modal" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-title" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-panel">
+        <button class="modal-close" type="button" data-close-modal aria-label="閉じる">×</button>
+        <p class="eyebrow">Demo</p>
+        <h2 id="demo-title">このLPで実装している機能</h2>
+        <ul>
+          <li>ハンバーガーメニュー</li>
+          <li>スクロール進捗バー</li>
+          <li>表示時アニメーション</li>
+          <li>数値カウントアップ</li>
+          <li>タブ切り替え</li>
+          <li>スライダー</li>
+          <li>料金切り替え</li>
+          <li>FAQアコーディオン</li>
+          <li>フォームバリデーション</li>
+          <li>モーダル表示</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <small>© 2026 FlowPilot Sample. Portfolio demo site.</small>
+    </footer>
+  </body>
+</html>
