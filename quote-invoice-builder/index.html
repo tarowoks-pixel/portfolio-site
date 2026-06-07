@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="小規模事業者向けに見積書・請求書の明細、消費税、合計金額をブラウザ上で作成できるサンプルツールです。" />
+    <title>見積書・請求書Web作成ツール | taro-apps Works</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="taro-apps Works">
+        <span class="brand-mark">T</span>
+        <span>taro-apps Works</span>
+      </a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="#tool">書類作成</a>
+        <a href="#usecase">活用例</a>
+        <a href="../business-improvement-samples/index.html">業務改善サンプル</a>
+        <a href="../index.html#contact">相談する</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Quote / Invoice Tool</p>
+          <h1>見積書と請求書を、入力しながらすぐ確認できます。</h1>
+          <p>
+            顧客名、作業内容、単価、数量を入力すると、税額と合計を自動計算します。
+            実案件ではExcel版、PDF出力、発行履歴管理まで広げられるサンプルです。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#tool">作成ツールを見る</a>
+            <a class="secondary-link" href="../business-improvement-samples/index.html">Excel版を見る</a>
+          </div>
+        </div>
+        <div class="hero-panel document-hero">
+          <div class="document-mini">
+            <div class="doc-top"><span id="heroDocType">御見積書</span><strong id="heroTotal">66,000円</strong></div>
+            <div class="doc-line"><span>LP修正</span><strong>30,000円</strong></div>
+            <div class="doc-line"><span>問い合わせフォーム調整</span><strong>20,000円</strong></div>
+            <div class="doc-line"><span>スマホ表示確認</span><strong>10,000円</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section" id="tool">
+        <div class="section-heading">
+          <p class="eyebrow">Builder</p>
+          <h2>見積書・請求書Web作成ツール</h2>
+          <p>種別、宛先、明細を変えると、右側のプレビューと合計金額が自動更新されます。</p>
+        </div>
+
+        <div class="tool-layout">
+          <form class="input-panel">
+            <div class="form-grid">
+              <label>書類種別
+                <select id="docType">
+                  <option value="quote">見積書</option>
+                  <option value="invoice">請求書</option>
+                </select>
+              </label>
+              <label>発行日<input id="issueDate" type="date" /></label>
+              <label>宛先<input id="clientName" type="text" value="山田商店 御中" /></label>
+              <label>発行者<input id="issuerName" type="text" value="taro-apps Works" /></label>
+              <label>件名<input id="subject" type="text" value="ホームページ修正作業" /></label>
+              <label>税率
+                <select id="taxRate">
+                  <option value="0.1">10%</option>
+                  <option value="0.08">8%</option>
+                  <option value="0">なし</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="items-box">
+              <h3>明細</h3>
+              <div id="itemRows"></div>
+              <button class="secondary-action" type="button" id="addItem">明細を追加</button>
+            </div>
+
+            <label>備考<textarea id="note">納期、修正回数、素材提供の有無などは別途ご相談ください。</textarea></label>
+          </form>
+
+          <aside class="preview-panel">
+            <div class="paper" id="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="doc-label" id="previewType">御見積書</p>
+                  <h3 id="previewSubject">ホームページ修正作業</h3>
+                </div>
+                <div class="paper-meta">
+                  <span id="previewDate">2026-06-03</span>
+                  <span id="previewNumber">No. T-20260603</span>
+                </div>
+              </div>
+              <div class="client-line"><strong id="previewClient">山田商店 御中</strong></div>
+              <div class="total-box">
+                <span>合計金額</span>
+                <strong id="previewTotal">66,000円</strong>
+              </div>
+              <div class="table-wrap">
+                <table class="invoice-table">
+                  <thead><tr><th>内容</th><th>数量</th><th>単価</th><th>金額</th></tr></thead>
+                  <tbody id="previewItems"></tbody>
+                </table>
+              </div>
+              <dl class="totals">
+                <div><dt>小計</dt><dd id="subtotal">60,000円</dd></div>
+                <div><dt>消費税</dt><dd id="tax">6,000円</dd></div>
+                <div><dt>合計</dt><dd id="total">66,000円</dd></div>
+              </dl>
+              <p class="note" id="previewNote"></p>
+              <p class="issuer" id="previewIssuer">taro-apps Works</p>
+            </div>
+            <div class="action-row">
+              <button class="tool-button" type="button" id="copySummary">概要をコピー</button>
+              <button class="secondary-action" type="button" id="printDoc">印刷プレビュー</button>
+            </div>
+            <span class="copy-status" id="copyStatus" role="status"></span>
+          </aside>
+        </div>
+      </section>
+
+      <section class="usecase-section" id="usecase">
+        <div class="section-heading">
+          <p class="eyebrow">Use Case</p>
+          <h2>こんな改善に広げられます</h2>
+        </div>
+        <div class="usecase-grid">
+          <article><span>01</span><h3>発行履歴管理</h3><p>発行日、顧客名、金額、支払い状況を一覧で管理できます。</p></article>
+          <article><span>02</span><h3>Excel/PDF化</h3><p>ExcelテンプレートやPDF出力に広げると実務に使いやすくなります。</p></article>
+          <article><span>03</span><h3>顧客マスタ</h3><p>よく使う宛先や住所をマスタ化して入力時間を減らします。</p></article>
+          <article><span>04</span><h3>小規模事業向け</h3><p>個人事業主や店舗の定型書類作成に向いています。</p></article>
+        </div>
+      </section>
+      <section class="contact-section">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>小さな改善から相談できます</h2>
+          <p>
+            ホームページ修正、Excel管理表、スプレッドシート整理、小さな自動化ツールなど、
+            現状の作業を整理するところから対応できます。
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="primary-link" href="mailto:tarowoks@gmail.com">メールで相談</a>
+          <a class="secondary-link" href="https://coconala.com/services/4231156" target="_blank" rel="noreferrer">ココナラで相談</a>
+          <a class="secondary-link" href="https://crowdworks.jp/public/employees/6867071?ref=login_header" target="_blank" rel="noreferrer">CrowdWorksで相談</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>© 2026 taro-apps Works</small>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

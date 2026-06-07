@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="問い合わせの対応状況、優先度、期限を見える化する小規模事業者向け管理ダッシュボードのサンプルです。" />
+    <title>問い合わせ管理ダッシュボード | taro-apps Works</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="taro-apps Works">
+        <span class="brand-mark">T</span>
+        <span>taro-apps Works</span>
+      </a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="#tool">管理画面</a>
+        <a href="#usecase">活用例</a>
+        <a href="../business-improvement-samples/index.html">業務改善サンプル</a>
+        <a href="../index.html#contact">相談する</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Inquiry Management</p>
+          <h1>問い合わせ対応の抜け漏れを見える化します。</h1>
+          <p>
+            メール、フォーム、SNSから届いた問い合わせを、対応状況・優先度・期限で整理するダッシュボードです。
+            小規模な会社や個人事業主でも使いやすい管理表のイメージとして作成しています。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#tool">管理画面を見る</a>
+            <a class="secondary-link" href="../index.html#contact">相談導線を見る</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="summary-grid">
+            <article class="stat-card"><span>未対応</span><strong id="heroOpen">0件</strong></article>
+            <article class="stat-card"><span>本日対応</span><strong id="heroToday">0件</strong></article>
+            <article class="stat-card"><span>期限注意</span><strong id="heroDue">0件</strong></article>
+            <article class="stat-card"><span>完了</span><strong id="heroDone">0件</strong></article>
+          </div>
+          <div class="mini-kanban" aria-label="対応状況のサンプル">
+            <div><strong>新規</strong><span>見積相談</span><span>資料請求</span></div>
+            <div><strong>対応中</strong><span>LP修正</span><span>Excel整理</span></div>
+            <div><strong>完了</strong><span>画像差し替え</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section" id="tool">
+        <div class="section-heading">
+          <p class="eyebrow">Dashboard</p>
+          <h2>問い合わせ管理ダッシュボード</h2>
+          <p>サンプルデータを使って、ステータス変更、絞り込み、新規追加、対応メモの確認ができます。</p>
+        </div>
+
+        <div class="summary-grid">
+          <article class="stat-card"><span>未対応</span><strong id="openCount">0</strong></article>
+          <article class="stat-card"><span>対応中</span><strong id="workingCount">0</strong></article>
+          <article class="stat-card"><span>期限注意</span><strong id="dueCount">0</strong></article>
+          <article class="stat-card"><span>完了</span><strong id="doneCount">0</strong></article>
+        </div>
+
+        <div class="tool-layout dashboard-layout">
+          <form class="input-panel" id="inquiryForm">
+            <h3>問い合わせを追加</h3>
+            <label>会社名・名前<input id="nameInput" type="text" value="青葉カフェ" /></label>
+            <label>内容<textarea id="contentInput">ホームページのメニュー表をスマホで見やすくしたい</textarea></label>
+            <div class="form-grid">
+              <label>流入元
+                <select id="sourceInput">
+                  <option>フォーム</option>
+                  <option>メール</option>
+                  <option>ココナラ</option>
+                  <option>クラウドワークス</option>
+                  <option>SNS</option>
+                </select>
+              </label>
+              <label>優先度
+                <select id="priorityInput">
+                  <option>高</option>
+                  <option>中</option>
+                  <option>低</option>
+                </select>
+              </label>
+              <label>ステータス
+                <select id="statusInput">
+                  <option>未対応</option>
+                  <option>対応中</option>
+                  <option>完了</option>
+                </select>
+              </label>
+              <label>期限<input id="dueInput" type="date" /></label>
+            </div>
+            <button class="tool-button" type="submit">サンプルに追加</button>
+            <p class="muted">実案件ではGoogleフォームやスプレッドシート連携にも広げられます。</p>
+          </form>
+
+          <div class="preview-panel">
+            <div class="filter-row">
+              <label>ステータス
+                <select id="statusFilter">
+                  <option value="all">すべて</option>
+                  <option>未対応</option>
+                  <option>対応中</option>
+                  <option>完了</option>
+                </select>
+              </label>
+              <label>優先度
+                <select id="priorityFilter">
+                  <option value="all">すべて</option>
+                  <option>高</option>
+                  <option>中</option>
+                  <option>低</option>
+                </select>
+              </label>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>問い合わせ</th>
+                    <th>流入元</th>
+                    <th>優先度</th>
+                    <th>状況</th>
+                    <th>期限</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="inquiryTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="usecase-section" id="usecase">
+        <div class="section-heading">
+          <p class="eyebrow">Use Case</p>
+          <h2>こんな相談につながります</h2>
+          <p>問い合わせ対応を整理すると、Webサイトの改善、業務フロー整理、Excel管理表作成に自然につながります。</p>
+        </div>
+        <div class="usecase-grid">
+          <article><span>01</span><h3>対応漏れ防止</h3><p>未対応、対応中、完了を見える化して、返信忘れを減らします。</p></article>
+          <article><span>02</span><h3>優先度管理</h3><p>急ぎの問い合わせや高単価相談を先に対応できるようにします。</p></article>
+          <article><span>03</span><h3>修正依頼管理</h3><p>画像差し替え、文言修正、追加依頼を一覧で管理できます。</p></article>
+          <article><span>04</span><h3>分析の入口</h3><p>どこから問い合わせが来ているかを見て、サイト改善に活かせます。</p></article>
+        </div>
+      </section>
+      <section class="contact-section">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>小さな改善から相談できます</h2>
+          <p>
+            ホームページ修正、Excel管理表、スプレッドシート整理、小さな自動化ツールなど、
+            現状の作業を整理するところから対応できます。
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="primary-link" href="mailto:tarowoks@gmail.com">メールで相談</a>
+          <a class="secondary-link" href="https://coconala.com/services/4231156" target="_blank" rel="noreferrer">ココナラで相談</a>
+          <a class="secondary-link" href="https://crowdworks.jp/public/employees/6867071?ref=login_header" target="_blank" rel="noreferrer">CrowdWorksで相談</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>© 2026 taro-apps Works</small>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

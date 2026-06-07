@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ホームページの問い合わせ導線、スマホ表示、信頼感、更新性を点数化する改善チェック診断ツールです。" />
+    <title>ホームページ改善チェック診断 | taro-apps Works</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="taro-apps Works">
+        <span class="brand-mark">T</span>
+        <span>taro-apps Works</span>
+      </a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="#tool">診断</a>
+        <a href="#usecase">活用例</a>
+        <a href="../business-improvement-samples/index.html">業務改善サンプル</a>
+        <a href="../index.html#contact">相談する</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Website Improvement Check</p>
+          <h1>ホームページの改善ポイントを点数で見える化します。</h1>
+          <p>
+            問い合わせ導線、スマホ表示、信頼感、更新しやすさなどをチェックし、改善優先度を表示します。
+            Web制作相談の入口として使える診断サンプルです。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#tool">診断してみる</a>
+            <a class="secondary-link" href="../interactive-business-lp/index.html">LPサンプルを見る</a>
+          </div>
+        </div>
+        <div class="hero-panel score-hero">
+          <span>Current Score</span>
+          <strong id="heroScore">68点</strong>
+          <p id="heroRank">改善余地あり。問い合わせ導線と信頼情報を見直すと効果が出やすいです。</p>
+          <div class="score-meter"><div id="heroBar"></div></div>
+        </div>
+      </section>
+
+      <section class="tool-section" id="tool">
+        <div class="section-heading">
+          <p class="eyebrow">Checker</p>
+          <h2>ホームページ改善チェック診断</h2>
+          <p>当てはまる項目にチェックを入れると、点数・ランク・改善提案が更新されます。</p>
+        </div>
+
+        <div class="tool-layout">
+          <form class="input-panel" id="checkForm">
+            <label>サイト種別
+              <select id="siteType">
+                <option>店舗サイト</option>
+                <option>コーポレートサイト</option>
+                <option>LP</option>
+                <option>個人事業主サイト</option>
+              </select>
+            </label>
+            <div class="check-group" id="checks"></div>
+          </form>
+
+          <aside class="result-panel">
+            <div class="score-card">
+              <span>診断スコア</span>
+              <strong id="scoreText">68点</strong>
+              <p id="rankText">改善余地あり</p>
+              <div class="score-meter"><div id="scoreBar"></div></div>
+            </div>
+            <div class="result-list" id="resultList"></div>
+            <div class="proposal-box">
+              <h3>改善提案文</h3>
+              <p id="proposalText"></p>
+              <button class="tool-button" type="button" id="copyProposal">提案文をコピー</button>
+              <span class="copy-status" id="copyStatus" role="status"></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="usecase-section" id="usecase">
+        <div class="section-heading">
+          <p class="eyebrow">Use Case</p>
+          <h2>Web制作案件の提案に使えます</h2>
+        </div>
+        <div class="usecase-grid">
+          <article><span>01</span><h3>初回ヒアリング</h3><p>現状サイトの弱点を一緒に確認し、改善範囲を整理できます。</p></article>
+          <article><span>02</span><h3>修正案件化</h3><p>ボタン追加、文言修正、スマホ調整などの小さな案件につなげます。</p></article>
+          <article><span>03</span><h3>LP改善</h3><p>CTAや実績表示を改善し、問い合わせ率の改善を狙います。</p></article>
+          <article><span>04</span><h3>運用改善</h3><p>更新しやすさや問い合わせ管理まで含めた提案ができます。</p></article>
+        </div>
+      </section>
+      <section class="contact-section">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>小さな改善から相談できます</h2>
+          <p>
+            ホームページ修正、Excel管理表、スプレッドシート整理、小さな自動化ツールなど、
+            現状の作業を整理するところから対応できます。
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="primary-link" href="mailto:tarowoks@gmail.com">メールで相談</a>
+          <a class="secondary-link" href="https://coconala.com/services/4231156" target="_blank" rel="noreferrer">ココナラで相談</a>
+          <a class="secondary-link" href="https://crowdworks.jp/public/employees/6867071?ref=login_header" target="_blank" rel="noreferrer">CrowdWorksで相談</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <small>© 2026 taro-apps Works</small>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

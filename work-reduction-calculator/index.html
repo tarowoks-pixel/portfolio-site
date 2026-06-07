@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="毎日の転記・集計・確認作業が月にどれくらい時間と人件費を使っているかを試算できる、業務改善向けの作業時間削減シミュレーターです。"
+    />
+    <title>作業時間削減シミュレーター | taro-apps Works</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="taro-apps Works">
+        <span class="brand-mark">T</span>
+        <span>taro-apps Works</span>
+      </a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="#simulator">診断</a>
+        <a href="#examples">活用例</a>
+        <a href="../business-improvement-samples/index.html">業務改善サンプル</a>
+        <a href="../index.html#contact">相談する</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-copy">
+          <p class="eyebrow">Business Improvement Tool</p>
+          <h1>その作業、月にいくら使っているか見える化します。</h1>
+          <p>
+            毎日の転記、集計、確認、メール文面作成などの細かな作業は、合計すると大きな時間になります。
+            このシミュレーターでは、作業時間・頻度・人数から、月間コストと自動化した場合の削減見込みを試算できます。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#simulator">試算してみる</a>
+            <a class="secondary-link" href="../index.html#contact">改善相談を見る</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="削減効果のイメージ">
+          <div class="visual-card visual-card--dark">
+            <span>Before</span>
+            <strong id="visualBefore">月 32.5 時間</strong>
+            <small>転記・確認・集計に使う時間</small>
+          </div>
+          <div class="flow-line" aria-hidden="true"></div>
+          <div class="visual-card visual-card--accent">
+            <span>After</span>
+            <strong id="visualAfter">月 9.8 時間</strong>
+            <small>入力補助・自動集計後の目安</small>
+          </div>
+          <div class="mini-sheet" aria-hidden="true">
+            <div>日付</div><div>作業</div><div>状態</div>
+            <div>6/3</div><div>請求書作成</div><div>自動化候補</div>
+            <div>6/4</div><div>売上集計</div><div>削減大</div>
+            <div>6/5</div><div>問い合わせ整理</div><div>優先</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="simulator-section" id="simulator">
+        <div class="section-heading">
+          <p class="eyebrow">Simulator</p>
+          <h2>作業時間削減シミュレーター</h2>
+          <p>数値を変えると、削減できる時間・人件費・回収目安がすぐに更新されます。</p>
+        </div>
+
+        <div class="tool-layout">
+          <form class="input-panel" aria-label="試算条件">
+            <div class="preset-row" aria-label="入力例">
+              <button type="button" data-preset="transfer">Excel転記</button>
+              <button type="button" data-preset="inquiry">問い合わせ管理</button>
+              <button type="button" data-preset="invoice">請求書作成</button>
+            </div>
+
+            <label>
+              作業名
+              <input id="taskName" type="text" value="Excelへの転記と集計" />
+            </label>
+
+            <div class="form-grid">
+              <label>
+                1回の作業時間
+                <span class="unit-input">
+                  <input id="minutes" type="number" min="1" value="15" />
+                  <span>分</span>
+                </span>
+              </label>
+              <label>
+                頻度
+                <span class="unit-input">
+                  <input id="frequency" type="number" min="1" value="5" />
+                  <span>回/週</span>
+                </span>
+              </label>
+              <label>
+                作業人数
+                <span class="unit-input">
+                  <input id="people" type="number" min="1" value="3" />
+                  <span>人</span>
+                </span>
+              </label>
+              <label>
+                時給換算
+                <span class="unit-input">
+                  <input id="hourlyRate" type="number" min="1" value="1800" />
+                  <span>円</span>
+                </span>
+              </label>
+              <label>
+                改善費用の目安
+                <span class="unit-input">
+                  <input id="initialCost" type="number" min="0" value="30000" />
+                  <span>円</span>
+                </span>
+              </label>
+              <label>
+                削減率
+                <span class="range-wrap">
+                  <input id="reductionRate" type="range" min="10" max="95" value="70" />
+                  <strong><span id="reductionLabel">70</span>%</strong>
+                </span>
+              </label>
+            </div>
+          </form>
+
+          <aside class="result-panel" aria-live="polite">
+            <div class="rank-card" id="rankCard">
+              <span>改善おすすめ度</span>
+              <strong id="rankText">A</strong>
+              <p id="rankMessage">自動化・入力補助の効果が出やすい作業です。</p>
+            </div>
+
+            <div class="metric-grid">
+              <article>
+                <span>月間作業時間</span>
+                <strong id="monthlyHours">32.5時間</strong>
+              </article>
+              <article>
+                <span>月間コスト</span>
+                <strong id="monthlyCost">58,500円</strong>
+              </article>
+              <article>
+                <span>削減見込み</span>
+                <strong id="savedHours">22.8時間/月</strong>
+              </article>
+              <article>
+                <span>年間削減額</span>
+                <strong id="annualSaving">491,400円</strong>
+              </article>
+            </div>
+
+            <div class="bar-chart" aria-label="改善前後の作業時間比較">
+              <div>
+                <span>改善前</span>
+                <div class="bar-track"><div id="beforeBar" class="bar before"></div></div>
+              </div>
+              <div>
+                <span>改善後</span>
+                <div class="bar-track"><div id="afterBar" class="bar after"></div></div>
+              </div>
+            </div>
+
+            <div class="proposal-box">
+              <h3>提案文サンプル</h3>
+              <p id="proposalText"></p>
+              <button class="copy-button" type="button" id="copyProposal">提案文をコピー</button>
+              <span id="copyStatus" class="copy-status" role="status"></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="examples-section" id="examples">
+        <div class="section-heading">
+          <p class="eyebrow">Use Cases</p>
+          <h2>こういう相談につなげられます</h2>
+          <p>小さな作業の見える化から、Excel・スプレッドシート・Webフォームの改善提案に広げられます。</p>
+        </div>
+        <div class="example-grid">
+          <article>
+            <span>01</span>
+            <h3>問い合わせ管理</h3>
+            <p>メールやフォームから来た相談を一覧化し、対応状況・優先度・次回対応日を見える化します。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>売上・日報集計</h3>
+            <p>毎日入力する売上、件数、メモを自動集計し、月次確認を楽にします。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>見積書・請求書</h3>
+            <p>顧客情報や商品情報をマスタ化し、書類作成と発行履歴の管理をまとめます。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Web運用まわり</h3>
+            <p>サイト公開後の問い合わせ、更新依頼、修正履歴を管理しやすくします。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>面倒な作業の削減から相談できます</h2>
+          <p>
+            ホームページ修正、Excel管理表、スプレッドシート整理、小さな自動化ツールなど、
+            まずは現状の作業を整理するところから対応できます。
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="primary-link" href="mailto:tarowoks@gmail.com">メールで相談</a>
+          <a class="secondary-link" href="https://coconala.com/services/4231156" target="_blank" rel="noreferrer">ココナラで相談</a>
+          <a class="secondary-link" href="https://crowdworks.jp/public/employees/6867071?ref=login_header" target="_blank" rel="noreferrer">CrowdWorksで相談</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© 2026 taro-apps Works</small>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
