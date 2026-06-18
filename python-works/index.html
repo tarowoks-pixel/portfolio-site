@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Python/Pandasを使ったデータ名寄せ・クレンジングのサンプルコードとBefore/Afterを紹介します。" />
+    <title>Python技術紹介 | taro-apps Works</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="taro-apps Works">
+        <span class="brand-mark">T</span>
+        <span>taro-apps Works</span>
+      </a>
+      <nav class="site-nav" aria-label="主要メニュー">
+        <a href="../index.html#works">← 制作実績トップ</a>
+        <a href="../index.html#contact">相談する</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="py-hero">
+        <div class="py-hero-copy">
+          <p class="eyebrow">Python / Pandas</p>
+          <h1>データ整理・名寄せを<br>Pythonで自動化する</h1>
+          <p class="hero-lead">
+            手作業でやっているCSVの表記ゆれ修正・重複除去・書式統一を、
+            Pythonスクリプト1本で再現可能な形に整理します。
+          </p>
+        </div>
+        <div class="py-hero-tags">
+          <span>Python 3.x</span>
+          <span>Pandas</span>
+          <span>正規表現</span>
+          <span>CSV処理</span>
+          <span>名寄せ</span>
+          <span>データクレンジング</span>
+        </div>
+      </section>
+
+      <section class="section-block py-section">
+        <div class="section-heading">
+          <p class="eyebrow">Sample</p>
+          <h2>サンプル：施設データの名寄せ・クレンジング</h2>
+          <p>公開データに多い表記ゆれ・重複・書式不統一を、Pythonで一括処理するサンプルです。</p>
+        </div>
+
+        <div class="before-after">
+          <div class="ba-block">
+            <p class="ba-label ba-label--before">Before（処理前）</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>施設名</th><th>電話番号</th><th>住所</th><th>種別</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="row-dup"><td>やまなし苑</td><td>０５５-１２３-４５６７</td><td>山梨県甲府市丸の内１－１</td><td>有料老人ホーム</td></tr>
+                  <tr class="row-dup"><td>やまなし苑</td><td>055-123-4567</td><td>山梨県甲府市丸の内1-1</td><td>サービス付き高齢者住宅</td></tr>
+                  <tr><td>富士の郷</td><td>0555-22-3333</td><td>山梨県富士吉田市上吉田２丁目</td><td>グループホーム</td></tr>
+                  <tr class="row-dup"><td>甲斐ケアホーム</td><td>０５５６ー３４ー５６７８</td><td>山梨県大月市大月町真木</td><td>介護付有料老人ホーム</td></tr>
+                  <tr class="row-dup"><td>甲斐ケアホーム</td><td>0556-34-5678</td><td>山梨県大月市大月町真木</td><td>住宅型有料老人ホーム</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="ba-note">⚠ 全角数字・ハイフン違い・住所表記ゆれで重複と判定されない状態</p>
+          </div>
+
+          <div class="ba-arrow">→</div>
+
+          <div class="ba-block">
+            <p class="ba-label ba-label--after">After（処理後）</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>施設名</th><th>電話番号</th><th>住所</th><th>種別</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>やまなし苑</td><td>055-123-4567</td><td>山梨県甲府市丸の内1-1</td><td>有料老人ホーム / サービス付き高齢者住宅</td></tr>
+                  <tr><td>富士の郷</td><td>0555-22-3333</td><td>山梨県富士吉田市上吉田2丁目</td><td>グループホーム</td></tr>
+                  <tr><td>甲斐ケアホーム</td><td>0556-34-5678</td><td>山梨県大月市大月町真木</td><td>介護付有料老人ホーム / 住宅型有料老人ホーム</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="ba-note">✅ 5件 → 3件に統合。種別は「/」結合でマージ</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block py-section">
+        <div class="section-heading">
+          <p class="eyebrow">Code</p>
+          <h2>処理の概要</h2>
+          <p>4ステップで表記ゆれ統一→重複検出→マージ→出力まで一括処理します。</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>全角→半角・表記統一</h3>
+            <p>電話番号の全角数字を半角に変換し、ハイフン（ー・－・―）を統一。住所の全角数字・英字も半角化。</p>
+            <pre><code>def normalize(s):
+    # 全角→半角変換
+    s = s.translate(ZEN_HAN_TABLE)
+    # ハイフン統一
+    s = re.sub(r'[ー－―‐−]', '-', s)
+    return s.strip()
+
+df["tel"] = df["tel"].apply(normalize)
+df["address"] = df["address"].apply(normalize)</code></pre>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>重複キーの生成</h3>
+            <p>住所と電話番号を組み合わせたキーで重複を検出。一方が欠損している場合は空文字で補完。</p>
+            <pre><code>df["_key"] = (
+    df["address"].fillna("") +
+    "_" +
+    df["tel"].fillna("")
+)
+
+duplicates = df[df.duplicated(
+    subset="_key", keep=False
+)]</code></pre>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>重複グループをマージ</h3>
+            <p>同一キーのグループを1行にまとめ、種別（サービス種別等）は「/」結合で保持。確認用の差分ログも出力。</p>
+            <pre><code>def merge_group(group):
+    base = group.iloc[0].copy()
+    base["service_type"] = " / ".join(
+        group["service_type"]
+        .dropna().unique()
+    )
+    return base
+
+df_clean = (
+    df.groupby("_key", group_keys=False)
+      .apply(merge_group)
+      .drop(columns="_key")
+      .reset_index(drop=True)
+)</code></pre>
+          </div>
+          <div class="step-card">
+            <span class="step-num">04</span>
+            <h3>CSV出力</h3>
+            <p>全列をダブルクォーテーションで囲み、BOM付きUTF-8でCSV出力。Excelで開いても文字化けしない形式。</p>
+            <pre><code>df_clean.to_csv(
+    "output_clean.csv",
+    index=False,
+    encoding="utf-8-sig",
+    quoting=csv.QUOTE_ALL
+)
+
+print(f"完了: {len(df)} 件 → "
+      f"{len(df_clean)} 件")</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block py-section">
+        <div class="section-heading">
+          <p class="eyebrow">Use Case</p>
+          <h2>こんな案件に対応できます</h2>
+        </div>
+        <div class="usecase-grid">
+          <article class="usecase-card">
+            <h3>CSVデータのクレンジング</h3>
+            <p>表記ゆれ・全角半角混在・余分なスペースを一括修正。行数が多くても処理時間は数秒。</p>
+          </article>
+          <article class="usecase-card">
+            <h3>名寄せ・重複除去</h3>
+            <p>電話番号・住所・会社名などを組み合わせたキーで重複を検出し、情報を統合して1レコードにまとめる。</p>
+          </article>
+          <article class="usecase-card">
+            <h3>Excel→CSVの書式統一</h3>
+            <p>複数のExcelファイルから列を抽出し、書式を統一してCSVに変換。定期処理にも対応。</p>
+          </article>
+          <article class="usecase-card">
+            <h3>公開データの整形</h3>
+            <p>政府・行政の公開Excel/CSVを指定フォーマットに変換。スクレイピングなしのデータ整備に対応。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>データ整理・Python処理のご相談</h2>
+          <p>CSVクレンジング、名寄せ、定期集計の自動化など、まずはデータの状態と目標をお聞かせください。</p>
+        </div>
+        <div class="contact-actions">
+          <a class="primary-link" href="mailto:tarowoks@gmail.com">メールで相談</a>
+          <a class="secondary-link" href="https://crowdworks.jp/public/employees/6867071?ref=login_header" target="_blank" rel="noreferrer">CrowdWorksで相談</a>
+          <a class="secondary-link" href="https://coconala.com/services/4257129" target="_blank" rel="noreferrer">業務改善ミニ診断</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© 2026 taro-apps Works</small>
+    </footer>
+  </body>
+</html>
