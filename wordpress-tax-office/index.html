@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>税理士事務所サイト（WordPress）| 制作サンプル</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif; background: #f8f9fc; color: #1a1a2e; line-height: 1.7; }
+    .site-header { background: #0f2860; color: #fff; padding: 1rem 2rem; display: flex; align-items: center; gap: 2rem; }
+    .site-header a { color: #aac4ff; text-decoration: none; font-size: 0.9rem; }
+    .site-header a:hover { color: #fff; }
+    .site-header h1 { font-size: 1rem; font-weight: 700; flex: 1; }
+    .case-hero { background: linear-gradient(135deg, #0a1e50 0%, #1e3a8a 60%, #0f4c81 100%); color: #fff; padding: 4rem 2rem 3rem; text-align: center; }
+    .case-hero .tag { display: inline-block; background: rgba(255,165,30,0.9); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1.2rem; text-transform: uppercase; }
+    .case-hero h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; }
+    .case-hero p { font-size: 1rem; color: #aac4ff; max-width: 600px; margin: 0 auto; }
+    .main-content { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .screenshot-wrap { border-radius: 12px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.18); margin-bottom: 3rem; border: 1px solid #dde3f0; }
+    .screenshot-wrap img { width: 100%; display: block; }
+    .section { margin-bottom: 3rem; }
+    .section h3 { font-size: 1.2rem; font-weight: 800; color: #0f2860; padding-bottom: 0.6rem; border-bottom: 3px solid #ffa51e; margin-bottom: 1.2rem; }
+    .section p { color: #444; font-size: 0.97rem; margin-bottom: 0.7rem; }
+    .spec-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    .spec-table th, .spec-table td { padding: 0.8rem 1rem; border: 1px solid #dde3f0; text-align: left; }
+    .spec-table th { background: #eef2fb; color: #0f2860; font-weight: 700; width: 200px; }
+    .spec-table td { background: #fff; color: #333; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+    .tag-chip { background: #eef2fb; color: #1e40af; font-size: 0.82rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 999px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+    .feature-card { background: #fff; border: 1px solid #dde3f0; border-radius: 10px; padding: 1.4rem 1.2rem; }
+    .feature-card .icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .feature-card h4 { font-size: 0.97rem; font-weight: 800; color: #0f2860; margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.87rem; color: #555; }
+    .demo-note { background: #fffbe6; border-left: 4px solid #ffa51e; border-radius: 6px; padding: 1rem 1.2rem; font-size: 0.9rem; color: #7a5a00; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 2rem; padding: 0.7rem 1.6rem; background: #0f2860; color: #fff; text-decoration: none; border-radius: 6px; font-size: 0.9rem; font-weight: 700; transition: background 0.2s; }
+    .back-link:hover { background: #1e40af; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>制作サンプル集</h1>
+    <a href="../index.html">← ポートフォリオに戻る</a>
+  </header>
+  <div class="case-hero">
+    <p class="tag">WordPress / 士業サイト</p>
+    <h2>山田太郎税理士事務所<br>コーポレートサイト</h2>
+    <p>Lightningテーマを使った、士業向けWordPressサイトのデモ制作サンプルです。</p>
+  </div>
+  <div class="main-content">
+    <div class="screenshot-wrap">
+      <img src="./wp-demo-screenshot.png" alt="税理士事務所サイト スクリーンショット" />
+    </div>
+    <div class="section">
+      <h3>制作概要</h3>
+      <p>中小企業・個人事業主向けの税理士事務所サイトを想定したWordPressデモサイトです。Lightningテーマのカスタマイザー機能を活用し、ヒーロースライダー・固定ページ・お問い合わせフォームを実装しました。</p>
+      <p>「士業のお客様に提案できるWordPress制作の実力を示す」ことを目的として制作しています。</p>
+    </div>
+    <div class="section">
+      <h3>サイト仕様</h3>
+      <table class="spec-table">
+        <tr><th>サイト名</th><td>山田太郎税理士事務所</td></tr>
+        <tr><th>CMS</th><td>WordPress（Local by Flywheel でローカル構築）</td></tr>
+        <tr><th>テーマ</th><td>Lightning（VK Themes）</td></tr>
+        <tr><th>プラグイン</th><td>Contact Form 7</td></tr>
+        <tr><th>ページ数</th><td>5ページ（ホーム・サービス・料金・事務所概要・FAQ・お問い合わせ）</td></tr>
+        <tr><th>制作環境</th><td>Local by Flywheel（Windows）</td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h3>使用技術・スキル</h3>
+      <div class="tag-list">
+        <span class="tag-chip">WordPress</span>
+        <span class="tag-chip">Lightning Theme</span>
+        <span class="tag-chip">Contact Form 7</span>
+        <span class="tag-chip">WP Customizer</span>
+        <span class="tag-chip">WP REST API</span>
+        <span class="tag-chip">ヒーロースライダー</span>
+        <span class="tag-chip">固定ページ制作</span>
+        <span class="tag-chip">お問い合わせフォーム</span>
+        <span class="tag-chip">Local by Flywheel</span>
+      </div>
+    </div>
+    <div class="section">
+      <h3>実装ポイント</h3>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon">🖼️</div>
+          <h4>ヒーロースライダーのカスタマイズ</h4>
+          <p>Lightningカスタマイザーで2枚のスライドを設定。日本語タイトル・説明文・CTAボタンを配置し、オーバーレイカラーで視認性を確保しました。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📋</div>
+          <h4>5ページ構成のコンテンツ設計</h4>
+          <p>サービス・料金（プラン比較表）、事務所概要（代表挨拶・アクセス）、FAQ（5項目）など、士業サイトに必要な情報を網羅しました。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📬</div>
+          <h4>Contact Form 7 導入</h4>
+          <p>お問い合わせページにContact Form 7を設置。氏名・メール・電話・相談内容の4フィールドで必要最低限の問い合わせ導線を実装しました。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⚙️</div>
+          <h4>WP REST API によるコンテンツ一括更新</h4>
+          <p>全ページのコンテンツをWP REST API（wp.apiFetch）で効率的に更新。管理画面UIを使わず一括でHTMLコンテンツを適用しました。</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h3>制作の背景・目的</h3>
+      <p>フリーランスとして士業（税理士・司法書士・社労士など）のお客様に対してWordPressサイト制作を提案できることを示すためのデモサンプルです。</p>
+      <p>Lightningテーマは国内での利用実績が多く、士業・医療・サービス業など幅広い業種で採用されています。このサンプルでは「信頼感」と「わかりやすさ」を重視したデザインを意識して制作しました。</p>
+    </div>
+    <div class="demo-note">
+      ⚠️ このサイトはLocal by Flywheelを使ったローカル環境のWordPressデモです。公開URLはありませんが、ご要望があれば実際の環境でのデモをご案内できます。
+    </div>
+    <a class="back-link" href="../index.html">← ポートフォリオに戻る</a>
+  </div>
+</body>
+</html>
