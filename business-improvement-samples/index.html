@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Excel、VBA、管理表を使って中小企業・個人事業主の面倒な事務作業を減らす業務改善サンプル集です。"
+      content="組込み系エンジニアによるExcel・VBA業務改善事例集です。問い合わせ管理、勤務表、見積書・請求書VBAツールを課題解決の観点から紹介しています。"
     />
-    <title>業務改善サンプル | taro-apps Works</title>
+    <title>業務改善事例 | taro-apps Works</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -17,7 +17,7 @@
         <span>taro-apps Works</span>
       </a>
       <nav class="site-nav" aria-label="主要メニュー">
-        <a href="#samples">サンプル</a>
+        <a href="#samples">事例</a>
         <a href="#usecase">依頼例</a>
         <a href="../index.html#works">制作実績</a>
         <a href="../index.html#contact">相談する</a>
@@ -27,11 +27,11 @@
     <main>
       <section class="overview-section">
         <div class="overview-copy">
-          <p class="eyebrow">Business Improvement Samples</p>
+          <p class="eyebrow">Business Improvement Cases</p>
           <h1>Excel・VBAで業務改善</h1>
           <p>
-            中小企業や個人事業主の現場で起きがちな、問い合わせ管理、勤務表、見積書・請求書作成を題材にした
-            業務改善サンプルです。大きなシステムを入れる前に、まずExcelで管理しやすくする想定で作っています。
+            中小企業や個人事業主の現場で起きがちな業務課題を題材に、Excel/VBAで改善した事例です。
+            課題の整理から設計・実装・動作確認まで一貫して対応しています。
           </p>
           <div class="overview-actions">
             <a class="primary-link" href="https://coconala.com/services/4257129" target="_blank" rel="noreferrer">業務改善ミニ診断を相談する</a>
@@ -58,9 +58,9 @@
 
       <section class="sample-list" id="samples">
         <div class="section-heading">
-          <p class="eyebrow">Samples</p>
-          <h2>作成サンプル</h2>
-          <p>そのまま営業時に見せられる、業務改善サンプルを3種類用意しています。</p>
+          <p class="eyebrow">Cases</p>
+          <h2>業務改善事例</h2>
+          <p>課題・改善・設計意図・効果の観点でまとめた業務改善事例です。ファイルはそのままダウンロードして使えます。</p>
         </div>
 
         <article class="sample-detail">
@@ -82,15 +82,25 @@
           <div class="sample-copy">
             <p class="work-type">Contact Management</p>
             <h3>問い合わせ管理表</h3>
-            <p>
-              問い合わせ日、相手先、内容、優先度、対応状況、次回対応日を1枚で管理するサンプルです。
-              対応漏れや期限超過が見えるようにしています。
-            </p>
-            <ul class="feature-list">
-              <li>対応状況、優先度、期限アラートをリスト選択で管理</li>
-              <li>期限超過・要対応・完了を色で判別</li>
-              <li>集計シートで未対応件数や優先度を確認</li>
-            </ul>
+            <dl class="case-detail">
+              <div>
+                <dt>課題</dt>
+                <dd>問い合わせ対応が担当者ごとに分かれ、対応漏れや期限超過が起きやすい</dd>
+              </div>
+              <div>
+                <dt>改善</dt>
+                <dd>対応状況・優先度・次回対応日を1シートに集約し、条件付き書式で期限超過・要対応を自動で色分け</dd>
+              </div>
+              <div>
+                <dt>設計意図</dt>
+                <dd>入力項目を絞り、ドロップダウンで選べる形にして、毎日続けやすい構成にした</dd>
+              </div>
+              <div>
+                <dt>効果</dt>
+                <dd>対応状況を一覧で確認でき、「次に何をすべきか」が誰でもすぐ分かる</dd>
+              </div>
+            </dl>
+            <p class="tech-tag">使用技術: Excel / 条件付き書式 / 入力規則 / COUNTIF</p>
             <a class="primary-link" href="./files/contact_management_sample.xlsx" download>Excelをダウンロード</a>
           </div>
         </article>
@@ -114,15 +124,25 @@
           <div class="sample-copy">
             <p class="work-type">Timesheet</p>
             <h3>標準勤務表</h3>
-            <p>
-              出勤・退勤・休憩から勤務時間、残業、不足時間、有休日数を計算する勤務表サンプルです。
-              祝日と会社独自休日も別シートから反映します。
-            </p>
-            <ul class="feature-list">
-              <li>祝日・会社休日を休日設定シートで管理</li>
-              <li>半休は有休日数0.5日として集計</li>
-              <li>休日行、不足時間ありの行を色で判別</li>
-            </ul>
+            <dl class="case-detail">
+              <div>
+                <dt>課題</dt>
+                <dd>勤務時間の集計を手作業で行っており、祝日対応や不足時間の計算ミスが発生しやすい</dd>
+              </div>
+              <div>
+                <dt>改善</dt>
+                <dd>出退勤を入力すると残業・不足時間を自動計算。祝日と会社休日を設定シートで一括管理</dd>
+              </div>
+              <div>
+                <dt>設計意図</dt>
+                <dd>月またぎの不足集計でずれが起きないよう、月次集計シートを別に持つ構成にした</dd>
+              </div>
+              <div>
+                <dt>効果</dt>
+                <dd>計算ミスがなくなり、給与処理・有休管理の確認作業が短縮できる</dd>
+              </div>
+            </dl>
+            <p class="tech-tag">使用技術: Excel / NETWORKDAYS / 条件付き書式 / 入力規則</p>
             <a class="primary-link" href="./files/standard_timesheet_sample.xlsx" download>Excelをダウンロード</a>
           </div>
         </article>
@@ -145,15 +165,25 @@
           <div class="sample-copy">
             <p class="work-type">Excel VBA Tool</p>
             <h3>見積書・請求書作成VBAツール</h3>
-            <p>
-              入力シートの内容から見積書・請求書を作成し、発行履歴に記録するVBAサンプルです。
-              顧客マスタ、商品マスタ、発行履歴の管理も含めています。
-            </p>
-            <ul class="feature-list">
-              <li>入力内容から見積書・請求書を作成</li>
-              <li>顧客マスタ、商品マスタを用意</li>
-              <li>発行日時、顧客名、金額を履歴に記録</li>
-            </ul>
+            <dl class="case-detail">
+              <div>
+                <dt>課題</dt>
+                <dd>見積書・請求書を毎回Excelで手作成しており、金額計算ミスや記入漏れが発生する</dd>
+              </div>
+              <div>
+                <dt>改善</dt>
+                <dd>入力シートに明細を入力するだけで帳票を自動生成し、発行履歴にも自動記録するVBAツールを作成</dd>
+              </div>
+              <div>
+                <dt>設計意図</dt>
+                <dd>シート名や列位置を変えても壊れないよう参照先を定数化し、保守しやすい構成にした</dd>
+              </div>
+              <div>
+                <dt>効果</dt>
+                <dd>作成工数を削減し、過去の発行履歴を一覧で確認できる</dd>
+              </div>
+            </dl>
+            <p class="tech-tag">使用技術: Excel / VBA / 顧客マスタ / 商品マスタ / 発行履歴管理</p>
             <a class="primary-link" href="./files/quote_invoice_vba_tool.xlsm" download>VBAツールをダウンロード</a>
           </div>
         </article>

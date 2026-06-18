@@ -231,6 +231,38 @@ h3 {
   padding-left: 20px;
 }
 
+.case-detail {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 18px;
+}
+
+.case-detail > div {
+  display: grid;
+  gap: 2px;
+}
+
+.case-detail dt {
+  color: #0f766e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.case-detail dd {
+  color: #334155;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tech-tag {
+  color: #64748b;
+  font-size: 0.82rem;
+  margin: 0 0 18px;
+}
+
 .primary-link {
   background: #0f766e;
   border-radius: 8px;
